@@ -1640,11 +1640,14 @@ String bool2option(String option, bool b) {
   String res;
   if (option.startsWith('enable-') &&
       option != kOptionEnableUdpPunch &&
-      option != kOptionEnableIpv6Punch) {
+      option != kOptionEnableIpv6Punch &&
+      option != kOptionOpenNewConnInTabs &&
+      option != kOptionEnableCheckUpdate) {
     res = b ? defaultOptionYes : 'N';
-  } else if (option.startsWith('allow-') ||
+  } else if ((option.startsWith('allow-') &&
+              option != kOptionD3DRender &&
+              option != kOptionAllowRemoteConfigModification) ||
       option == kOptionStopService ||
-      option == kOptionDirectServer ||
       option == kOptionForceAlwaysRelay) {
     res = b ? 'Y' : defaultOptionNo;
   } else {

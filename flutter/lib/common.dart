@@ -1642,7 +1642,7 @@ String bool2option(String option, bool b) {
       option != kOptionEnableUdpPunch &&
       option != kOptionEnableIpv6Punch) {
     res = b ? defaultOptionYes : 'N';
-  } else if (option.startsWith('allow-') ||
+  } else if ((option.startsWith('allow-') && option != 'allow-d3d-render') ||
       option == kOptionStopService ||
       option == kOptionDirectServer ||
       option == kOptionForceAlwaysRelay) {

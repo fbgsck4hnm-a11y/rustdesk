@@ -1639,8 +1639,10 @@ bool option2bool(String option, String value) {
 String bool2option(String option, bool b) {
   String res;
   if (option.startsWith('enable-') &&
-      option != kOptionEnableUdpPunch &&
-      option != kOptionEnableIpv6Punch) {
+    option != kOptionEnableUdpPunch &&
+    option != kOptionEnableIpv6Punch &&
+    option != kOptionOpenNewConnInTabs &&
+    option != kOptionEnableCheckUpdate) {
     res = b ? defaultOptionYes : 'N';
   } else if ((option.startsWith('allow-') && option != 'allow-d3d-render') ||
       option == kOptionStopService ||

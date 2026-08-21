@@ -1077,7 +1077,10 @@ fn get_api_server_(api: String, custom: String) -> String {
     if !s0.is_empty() {
         let s = crate::increase_port(&s0, -2);
         if s == s0 {
-           return format!("https://{}", s);
+            return format!("http://{}:{}", s, config::RENDEZVOUS_PORT - 2);
+        } else {
+            return format!("http://{}", s);
+        }
     }
     "https://admin.rustdesk.com".to_owned()
 }
